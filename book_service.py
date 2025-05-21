@@ -32,7 +32,7 @@ class BookRepository:
                 WHERE id = ?
             """, (book.title, book.author, book.year, book.id))
             conn.commit()
-            # Return True if any row was updated, False otherwise
+            
             return cursor.rowcount > 0
 
     def delete_book(self, book_id):
@@ -40,7 +40,7 @@ class BookRepository:
             cursor = conn.cursor()
             cursor.execute("DELETE FROM books WHERE id = ?", (book_id,))
             conn.commit()
-            # Return True if any row was deleted, False otherwise
+            
             return cursor.rowcount > 0
 
     def list_all_books(self):
@@ -61,7 +61,7 @@ class BookService:
         self.book_repository = BookRepository()
 
     def add_book(self, book: Book):
-        # You might want to add validation here if needed
+        
         self.book_repository.add_book(book)
 
     def get_book_by_id(self, book_id):
@@ -72,11 +72,11 @@ class BookService:
         return self.book_repository.get_book_by_id(book_id)
 
     def update_book(self, book: Book):
-        # Before update, check if book exists
+        
         existing_book = self.get_book_by_id(book.id)
         if not existing_book:
             return False
-        # Call update and return the boolean result from repository
+        
         return self.book_repository.update_book(book)
 
     def delete_book(self, book_id):
@@ -84,11 +84,11 @@ class BookService:
             book_id = int(book_id)
         except ValueError:
             return False
-        # Check if book exists
+        
         existing_book = self.get_book_by_id(book_id)
         if not existing_book:
             return False
-        # Call delete and return boolean result from repository
+        
         return self.book_repository.delete_book(book_id)
 
     def list_all_books(self):
