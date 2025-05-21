@@ -11,9 +11,6 @@ This is a simple **Book CRUD (Create, Read, Update, Delete)** application built 
 - Update book details
 - Delete a book
 - List all books
-- Input validation & user-friendly CLI
-
----
 
 ## 🛠️ Tech Stack
 
