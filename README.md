@@ -17,3 +17,7 @@ This is a simple **Book CRUD (Create, Read, Update, Delete)** application built 
 - **Language:** Python 3.x
 - **Database:** SQLite
 - **Architecture:** Layered with SOLID principle.
+
+## 📌 Note
+-Make sure books.db is in the root folder (it will be created automatically on first run).
+-Book ID must be unique.
